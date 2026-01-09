@@ -20,7 +20,10 @@ share {
         ['%{cmake}',
             @{ meta->prop->{plugin_build_cmake}->{args} },
             '-DENABLE_LIB_ONLY=ON',
-            '-DENABLE_STATIC_LIB=OFF',
+            # Build static library for share install - simpler and more portable
+            '-DBUILD_STATIC_LIBS=ON',
+            '-DBUILD_SHARED_LIBS=OFF',
+            '-DBUILD_TESTING=OFF',
             '-DCMAKE_INSTALL_PREFIX:PATH=%{.install.prefix}',
             '%{.install.extract}',
         ],
