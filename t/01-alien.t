@@ -25,12 +25,14 @@ __DATA__
 #include "XSUB.h"
 #include <nghttp2/nghttp2.h>
 
-MODULE = TA_nghttp2 PACKAGE = TA_nghttp2
-
 const char *
-version()
-    CODE:
-        nghttp2_info *info = nghttp2_version(0);
-        RETVAL = info->version_str;
-    OUTPUT:
-        RETVAL
+version(const char *class)
+{
+    const nghttp2_info *info = nghttp2_version(0);
+    return info->version_str;
+}
+
+MODULE = TA_MODULE PACKAGE = TA_MODULE
+
+const char *version(class);
+    const char *class;

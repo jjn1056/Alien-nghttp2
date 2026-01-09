@@ -5,11 +5,11 @@ plugin 'PkgConfig' => 'libnghttp2';
 share {
     requires 'Alien::Build::Plugin::Build::CMake' => '0.99';
     requires 'Alien::cmake3' => '0.02';
+    requires 'Alien::Build::Plugin::Download::GitHub' => '0.10';
 
-    plugin 'Download' => (
-        url     => 'https://github.com/nghttp2/nghttp2/releases',
-        version => qr/nghttp2-([\d\.]+)\.tar\.gz$/,
-        filter  => qr/\.tar\.gz$/,
+    plugin 'Download::GitHub' => (
+        github_user => 'nghttp2',
+        github_repo => 'nghttp2',
     );
 
     plugin 'Extract' => 'tar.gz';

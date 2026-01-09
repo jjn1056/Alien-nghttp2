@@ -7,6 +7,7 @@ my $abmm = Alien::Build::MM->new;
 
 WriteMakefile($abmm->mm_args(
     NAME               => 'Alien::nghttp2',
+    DISTNAME           => 'Alien-nghttp2',
     VERSION_FROM       => 'lib/Alien/nghttp2.pm',
     ABSTRACT_FROM      => 'lib/Alien/nghttp2.pm',
     AUTHOR             => 'Your Name <your@email.com>',
