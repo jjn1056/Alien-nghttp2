@@ -47,13 +47,15 @@ make realclean
 **Download::Negotiate Warning**: During build you may see warnings about
 "using the regular download negotiator plugin on a GitHub release page."
 
-This is a **false positive bug in Alien::Build** (as of v2.84). The warning
-regex `/^http.*github.com.*releases$/` incorrectly matches the GitHub API
-URL (`api.github.com`) when it should only warn about web URLs (`github.com`).
+This is a **false positive bug in Alien::Build** (as of v2.84) that affects
+**all** Alien distributions using `Download::GitHub` (including Alien::xz,
+Alien::Ninja, etc.). The warning regex `/^http.*github.com.*releases$/`
+incorrectly matches the GitHub API URL (`api.github.com`) when it should
+only warn about web URLs (`github.com`).
 
 Our alienfile correctly uses `Download::GitHub` plugin which uses the API:
 - Correct: `https://api.github.com/repos/nghttp2/nghttp2/releases`
 - The warning should only trigger for: `https://github.com/user/repo/releases`
 
 This is cosmetic only - all tests pass and functionality is correct.
-Bug should be reported to: https://github.com/PerlAlien/Alien-Build/issues
+Bug report: https://github.com/PerlAlien/Alien-Build/issues/431
