@@ -1,0 +1,11 @@
+/blib/
+/Makefile
+/Makefile.old
+/MYMETA.*
+/pm_to_blib
+/_alien/
+/.alien/
+/Alien-nghttp2-*
+*.o
+*.bs
+*.c
