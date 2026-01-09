@@ -41,3 +41,11 @@ make realclean
 - `ALIEN_INSTALL_TYPE=system` - Only use system library, fail if not found
 - `ALIEN_INSTALL_TYPE=share` - Always build from source
 - (unset) - Try system first, fall back to source build
+
+## Known Issues
+
+**Download::Negotiate Warning**: During build you may see warnings about
+"using the regular download negotiator plugin on a GitHub release page."
+This is a cosmetic warning from Alien::Build's plugin system and can be
+safely ignored - the alienfile correctly uses `Download::GitHub` plugin
+and all tests pass.
